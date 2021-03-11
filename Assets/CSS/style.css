@@ -1,1 +1,6 @@
-
+.jumbotron {
+    background-image: url("../Images/Screen\ Shot\ 2021-03-11\ at\ 1.01.01\ AM.png");
+    background-size: cover;
+    color:azure;
+    text-align:center;
+  }
