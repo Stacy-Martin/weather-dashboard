@@ -12,7 +12,7 @@ body {
 /*search bar style*/
 .wrap {
     position: absolute;
-/* width,top and left are the orientation on the page */
+/* width and top are the orientation on the page */
     top: 30%;
     width: 30%;
     display: flex;
@@ -25,17 +25,10 @@ body {
     border-right: none;
     padding: 5px;
     height: 36px;
-    /* border-radius: 5px 0 0 5px; */
-    /* outline: none; */
     color: black;
     font-size: 12pt;
   }
-  
-  /* this is the font color while writing */
-  /* .searchTerm:focus{
-    color: yellow;
-  } */
-  
+
   .searchButton {
     width: 40px;
     height: 36px;
@@ -44,16 +37,13 @@ body {
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
-    cursor: pointer;
+    /* this font-size is the size of the icon */
     font-size: 20px;
   }
 
 .searchButton:hover {
     color:darksalmon;
 }
-
-
-
 
 
 /* increase the default font size inherited from reboot CSS body */
@@ -69,7 +59,7 @@ body {
 
 /* style the main "todays weather" */
 .todays-weather {
-    background-color: lightcyan;
+    background-color: #00B4CC;
 }
 
 .card-text {
@@ -81,10 +71,11 @@ body {
     position: absolute;
     left: 0%;
     top: 15.25rem;
-    /* bottom: 0%; */
+    bottom: 0%;
     font-size: 35px;
     background-color: lavenderblush;
     margin: 0%;
+    /* height: 1800px; */
 }
 
 
