@@ -1,6 +1,104 @@
 .jumbotron {
     background-image: url("../Images/Screen\ Shot\ 2021-03-11\ at\ 1.01.01\ AM.png");
     background-size: cover;
-    color:azure;
+    /* color:azure; */
     text-align:center;
   }
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*search bar style*/
+.wrap {
+    position: absolute;
+/* width,top and left are the orientation on the page */
+    top: 30%;
+    width: 30%;
+    display: flex;
+  }
+
+  /* this is the size and the text in the search bar */
+.searchTerm {
+    width: 250px;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    /* border-radius: 5px 0 0 5px; */
+    /* outline: none; */
+    color: black;
+    font-size: 12pt;
+  }
+  
+  /* this is the font color while writing */
+  /* .searchTerm:focus{
+    color: yellow;
+  } */
+  
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+.searchButton:hover {
+    color:darksalmon;
+}
+
+
+
+
+
+/* increase the default font size inherited from reboot CSS body */
+#date-display {
+    font-size: 30px;
+}
+
+
+/* this is the styling of the five day forecast cards */
+.card-body {
+    background-color: lightblue;
+}
+
+/* style the main "todays weather" */
+.todays-weather {
+    background-color: lightcyan;
+}
+
+.card-text {
+    font-size: 12pt;
+}
+
+/* customize this !!! */
+.search-bar {
+    position: absolute;
+    left: 0%;
+    top: 15.25rem;
+    /* bottom: 0%; */
+    font-size: 35px;
+    background-color: lavenderblush;
+    margin: 0%;
+}
+
+
+.weather-cards {
+    left: 40%;
+    margin-left: 25%;
+    background-color: lightsalmon;
+}
+
+.five-day-forecast {
+    margin-top: 3rem;
+}
+
+.search {
+    align-self: center;
+    margin-left: 1rem;
+}
