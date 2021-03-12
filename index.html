@@ -29,29 +29,101 @@
     </header>
 <!-- ************************************************************************ -->
 
-    <section class="container">
+<div class="container">
+    <div class="row">
+        <div class="col-3 search-bar">
+            <!-- this is the search bar and button -->
+            <div class="wrap search">
+                <input type="text" class="searchTerm" placeholder="Search for city">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <p></p>
+            <!-- local storage - search history will be stored here  -->
+        </div>
+
+        <div class="col-9">
+            <div class="row weather-cards">
+                <div class="col">Today's Weather
+                    <div class="card todays-weather">
+                        <h4 class="card-title">City</h4>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                        <p class="card-text">Wind Speed</p>
+                        <p class="card-text">UV Index</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row five-day-forecast">
+                <div class="col">
+                    <div class="card card-body>
+                        <h4 class="card-title">Date One</h4>
+                        <p class="card-text">Weather Icon</p>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-body>
+                        <h4 class="card-title">Date Two</h4>
+                        <p class="card-text">Weather Icon</p>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-body>
+                        <h4 class="card-title">Date Three</h4>
+                        <p class="card-text">Weather Icon</p>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-body>
+                        <h4 class="card-title">Date Four</h4>
+                        <p class="card-text">Weather Icon</p>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-body>
+                        <h4 class="card-title">Date Five</h4>
+                        <p class="card-text">Weather Icon</p>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- <div class="container">
         <div class="row search-bar">
-            <div class="col">
+            <div class="col"> -->
                 <!-- this is the search bar and button -->
-                <div class="wrap search">
+                <!-- <div class="wrap search">
                     <input type="text" class="searchTerm" placeholder="Search for city">
                     <button type="submit" class="searchButton">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
-                <p></p>
+                <p></p> -->
                 <!-- local storage - search history will be stored here  -->
-            </div>
+            <!-- </div>
         </div>
-    </section>
+    </div> -->
 
 
 <!-- ************************************************************************ -->
-    <section class="container">
-        <div class="row weather-cards">
+    <!-- <div class="container">
+        <div class="row weather-cards"> -->
             <!-- this is the main section, todays weather, grid columns are supposed to span across ?? -->
             <!-- ?which col size to use here?? -->
-            <div class="col">Today's Weather
+            <!-- <div class="col">Today's Weather
                 <div class="card todays-weather">
                     <h4 class="card-title">City</h4>
                     <p class="card-text">Temperature</p>
@@ -60,10 +132,10 @@
                     <p class="card-text">UV Index</p>
                 </div>
             </div>
-        </div>
+        </div> -->
           <!-- 5 day forecast, 5 cards beneath today's weather section, columns auto/ into five -->
-        <div class="row five-day-forecast">
-            <div class="col">
+        <!-- <div class="row five-day-forecast">
+            <div class="col ">
                 <div class="card card-body" style="width: 18rem;">
                     <h4 class="card-title">Date One</h4>
                     <p class="card-text">Weather Icon</p>
@@ -104,7 +176,7 @@
                 </div>
             </div> 
         </div>
-    </section>
+    </div> -->
 
 
 
