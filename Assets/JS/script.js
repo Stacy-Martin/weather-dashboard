@@ -1,4 +1,4 @@
-init()
+
 
 // display current date function
 const dateDisplayEl = $('#date-display');
@@ -28,6 +28,15 @@ $('#search-btn').click(searchFx);
 // ? error alerts
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={ded1e9b5e5ea66606148d61b8d281024}
 
+// should i use let or const here ?
+let currentWeather = function (city) {
+    let apiURL = 'https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={ded1e9b5e5ea66606148d61b8d281024}'
+
+    fetch(apiURL)
+        .then(function (response){
+            if (response.ok)
+        });
+}
 
 // create fiveDay function
 // let API url / fetch / catch
@@ -35,6 +44,11 @@ $('#search-btn').click(searchFx);
 // ? error alerts
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={ded1e9b5e5ea66606148d61b8d281024}
 
+let fiveDay = function (city) {
+    let apiURL = 'https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={ded1e9b5e5ea66606148d61b8d281024}'
+
+    fetch(apiURL)
+}
 
 
 // add fetched weather data to appropriate spot in HTML for currentWeather
@@ -50,6 +64,6 @@ $('#search-btn').click(searchFx);
 // create if/then statement for weather icons from here:
 // https://openweathermap.org/weather-conditions#Icon-list
 
-
+// init()
 
 // local storage  ???
