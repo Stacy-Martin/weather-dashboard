@@ -1,7 +1,7 @@
 # Weather Dashboard
-## A dynamically operated weather dashboard for my favorite cities
+## A dynamically operated weather dashboard 
 
-I have created a weather dashboar where users can view live weather forecasts in the city of their choice.  Recently viewed cities are saved for quick reference.   
+I have created a weather dashboard where users can view live weather forecasts in the city of their choice.  Recently viewed cities are saved for quick reference.   
 
 ## App Description:
 
