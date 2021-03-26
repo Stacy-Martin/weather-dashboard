@@ -59,7 +59,7 @@ body {
     right: 0px;
     font-size: 35px;
     background-color: #FAFAFA;
-    margin: 5px;
+    margin: 20px;
     padding: 5px;
 }
 
@@ -70,9 +70,14 @@ body {
 /* style the main "todays weather" */
 .todays-weather {
     /* background-color: #00B4CC; */
-    padding: 10pt;
-    margin: 10pt;
-    text-align: left;
+    /* padding: 10pt; */
+    /* margin: 10pt; */
+    text-align: center;
+    margin: 5px;
+    /* background-color: cornflowerblue;
+    padding: 5px; */
+    border: 5px solid cornflowerblue;
+    /* justify-content: center; */
 }
 
 .card-text {
@@ -86,12 +91,16 @@ body {
     /* background-color: lightsalmon; */
     font-size: 24pt;
     text-align: center;
+    
 }
 
 .five-day-forecast {
     margin: 5px;
     background-color: cornflowerblue;
     padding: 5px;
+    text-align: center;
+    /* width: 100px; */
+
 }
 
 .row { 
@@ -100,4 +109,16 @@ body {
 
 .col-9.bg-primary.offset-3 {
     background-color: white;
+}
+
+.saveBtn {
+    /* margin: 0; */
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%; */
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    background-color: white;
+    font-size: 20pt;
 }

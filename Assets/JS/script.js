@@ -10,17 +10,34 @@ const searchBar = document.getElementById("search-bar");
 const searchBtn = document.getElementById("search-btn");
 
 $(document).ready(function () {
+  getCities();
   $("#search-btn").click(searchFx);
-});
+  $(document).on("keydown", function (e) {
+    // {console.log(e.keyCode)
+    if (e.keyCode == 13) {
+      searchFx();
+    }
+  });
 
+  $("#localStorage").on("click", function (e) {
+    //classList gives us back an array of classes
+    console.log(e.target.classList);
+
+    if (e.target.classList[0] == "saveBtn") {
+      let city = $(e.target).text();
+      console.log(city);
+      currentWeather(city);
+      fiveDay(city);
+    }
+  });
+});
 
 let searchFx = function () {
   //this retrieves the value of our input for the city
   let city = $("#search-bar").val();
 
-
   //Get our api calls using the parsed city, and also get the 5 day forecast
-  currentWeather(city)
+  currentWeather(city);
   fiveDay(city);
 };
 
@@ -35,14 +52,14 @@ let currentWeather = function (city) {
       }
     })
     .then(function (data) {
-            console.log(data);
+      console.log(data);
       const currentWeatherCard = $("#currrentWeatherCard");
 
       //this empties the contents of the row
       currentWeatherCard.empty();
 
       const resDay = data;
-      const currentDayCard = $("<div>").addClass("card todays-weather"); 
+      const currentDayCard = $("<div>").addClass("card todays-weather");
       const day = $("<h4>").addClass("card-title");
       const weatherIcon = $("<img>");
       const temperatureCard = $("<p>").addClass("card-text");
@@ -52,6 +69,7 @@ let currentWeather = function (city) {
       weatherIcon.attr(
         "src",
         `http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
+        // backticks allow string and can call variables within
       );
 
       temperatureCard.text(resDay.main.temp_max);
@@ -62,34 +80,32 @@ let currentWeather = function (city) {
       currentDayCard.append(temperatureCard);
       currentDayCard.append(humidityCard);
 
-
-    //   fiveDayCard.append(cardContainer);
+      //   fiveDayCard.append(cardContainer);
       currentWeatherCard.append(currentDayCard);
+      //we store the city in our local storage now cause we had a successful api call and we don't want to add it both 5day and currentWeather cause it will add 2 buttons for the same city
+      storeCities(city);
     })
     .catch(function (error) {
       console.log(error);
     });
 };
 
-
 // create function for five day forecast
 let fiveDay = function (city) {
   let apiURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ded1e9b5e5ea66606148d61b8d281024&units=imperial`;
-
+  const main5dayRow = $("#5-day-forecast");
+  //this empties the contents of our row
+  main5dayRow.empty();
   fetch(apiURL)
     .then(function (res) {
       if (res.ok) {
-        //this sends a json object to the next promise 
+        //this sends a json object to the next promise
         return res.json().then((data) => {
-
           // 8 time increments per day, start in middle of the day at i=3 then add 8 5x
-          const main5dayRow = $("#5-day-forecast");
-          //this empties the contents of our row
-          main5dayRow.empty();
-          for (let i = 3; i < data.list.length; i = i + 8) {
 
+          for (let i = 3; i < data.list.length; i = i + 8) {
             const resDay = data.list[i];
-            const fiveDayCard = $("<div>").addClass("col five-day-forecast"); 
+            const fiveDayCard = $("<div>").addClass("col five-day-forecast");
             const cardContainer = $("<div>").addClass("card card-body");
             const day = $("<h4>").addClass("card-title");
             const weatherIcon = $("<img>");
@@ -97,7 +113,9 @@ let fiveDay = function (city) {
             const humidityCard = $("<p>").addClass("card-text");
             day.text(resDay.dt_txt.split(" ")[0]);
             weatherIcon.attr(
-              "src",`http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`);
+              "src",
+              `http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
+            );
             temperatureCard.text(resDay.main.temp_max);
             humidityCard.text(resDay.main.humidity);
 
@@ -118,3 +136,77 @@ let fiveDay = function (city) {
       console.log(error);
     });
 };
+
+function storeCities(city) {
+  //we have to add to an array of cities stored into localstorage
+  /**
+   * 1. Get the array from localstorage or set the variable as a new empty array
+   * 2. parse the string into json as well (could be done on the same line as 1)
+   * 3. push city into array
+   * 4. set local storage as the modified array
+   */
+  const container = $("#localStorage");
+  const div = $("<div>");
+  const newButton = $("<button>");
+  newButton.addClass("saveBtn");
+  newButton.text(city);
+  //
+  let cityArray = localStorage.getItem("cities"); //returns undefined if there is no property in local storage called cities
+  // let cityArray = JSON.parse(localStorage.getItem("cities")) || []
+  //if we get an item from localstorage that is undefined, its length will equal zero
+  if (!cityArray) {
+    cityArray = [];
+  } else {
+    //comvert the string into JSON
+    cityArray = JSON.parse(cityArray);
+  }
+
+  //we know now cityArray is a city, so we can add items to it using .push()
+  // .push() is a method of the Array object class
+  if (!cityArray.includes(city)) {
+    cityArray.push(city);
+    if(cityArray.length > 5){
+   
+      cityArray.shift();
+      console.log(container.children()[0])
+      let child = container.find(":first-child");
+      //for whatever reason Kat needs into look because rememeber jackshit .find(":first:child") is giving all the damn children in the div, so we just need to remove the first one in the array, which is 0 :)
+      container.find(":first-child")[0].remove()
+    }
+
+    div.append(newButton);
+    container.append(div);  
+    //set the new cityArray as our reference in localStorage to cities
+    //we have to change cityArray into a string cause localStorage only accepts strings
+    localStorage.setItem("cities", JSON.stringify(cityArray));
+  }
+
+
+}
+
+function getCities() {
+  const container = $("#localStorage");
+  let cityArray = JSON.parse(localStorage.getItem("cities")); 
+
+  if(cityArray){
+      for(let i = 0; i < cityArray.length; i++){
+
+    if(i < 5){
+    const div = $("<div>");
+    const newButton = $("<button>");
+    newButton.addClass("saveBtn");
+    newButton.text(cityArray[i]);
+    div.append(newButton);
+    container.append(div); 
+    }
+    else{
+      break;
+    }
+ 
+
+  }
+  }
+
+
+
+}
