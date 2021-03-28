@@ -80,7 +80,7 @@ let currentWeather = function (city) {
       currentDayCard.append(temperatureCard);
       currentDayCard.append(humidityCard);
 
-      //   fiveDayCard.append(cardContainer);
+      //currentWeatherCard.append(cardContainer);
       currentWeatherCard.append(currentDayCard);
       //we store the city in our local storage now cause we had a successful api call and we don't want to add it both 5day and currentWeather cause it will add 2 buttons for the same city
       storeCities(city);
@@ -89,6 +89,8 @@ let currentWeather = function (city) {
       console.log(error);
     });
 };
+
+
 
 // create function for five day forecast
 let fiveDay = function (city) {
@@ -103,6 +105,11 @@ let fiveDay = function (city) {
         return res.json().then((data) => {
           // 8 time increments per day, start in middle of the day at i=3 then add 8 5x
 
+
+{/* <h5 class="card-subtitle mb-2">Temperature: ${temp}</h5>
+    <p id='currHumidity'>Humidity: ${humidity}</p>
+    <p id='wind'>Wind Speed: ${windSpeed}MPH</p> */}
+          
           for (let i = 3; i < data.list.length; i = i + 8) {
             const resDay = data.list[i];
             const fiveDayCard = $("<div>").addClass("col five-day-forecast");

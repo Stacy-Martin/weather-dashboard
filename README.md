@@ -13,7 +13,7 @@ The following screenshot provides a preview of the website appearance:
 
 ![](https://________)
 
-Visit the app live at ________:
+Visit the app live at https://stacy-martin.github.io/weather-dashboard/
 
 
 I am always grateful for feedback! 
