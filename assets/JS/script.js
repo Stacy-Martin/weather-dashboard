@@ -151,12 +151,6 @@ let getUVIndex = (lat, lon) => {
               // 8 time increments per day, start in middle of the day at i=3 then add 8 5x
 
 
-              {
-                /* <h5 class="card-subtitle mb-2">Temperature: ${temp}</h5>
-                    <p id='currHumidity'>Humidity: ${humidity}</p>
-                    <p id='wind'>Wind Speed: ${windSpeed}MPH</p> */
-              }
-
               for (let i = 3; i < data.list.length; i = i + 8) {
                 const resDay = data.list[i];
                 const fiveDayCard = $("<div>").addClass("col five-day-forecast");
