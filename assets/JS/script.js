@@ -72,7 +72,7 @@ let currentWeather = function (city) {
       //from the api call we got for the day
       weatherIcon.attr(
         "src",
-        `http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
+        `https://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
       // backticks allow string and can call variables within
       );
       //String.concat() method of the String object does the same thing as below
@@ -139,7 +139,7 @@ let getUVIndex = (lat, lon) => {
 
     // create function for five day forecast
     let fiveDay = function (city) {
-      let apiURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ded1e9b5e5ea66606148d61b8d281024&units=imperial`;
+      let apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ded1e9b5e5ea66606148d61b8d281024&units=imperial`;
       const main5dayRow = $("#5-day-forecast");
       //this empties the contents of our row
       main5dayRow.empty();
@@ -162,7 +162,7 @@ let getUVIndex = (lat, lon) => {
                 day.text(resDay.dt_txt.split(" ")[0]);
                 weatherIcon.attr(
                   "src",
-                  `http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
+                  `https://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
                 );
                 //string concatenation <- what to search for
                 //resDay.main.temp_max is a string, a string can be added before it to describe what it is
