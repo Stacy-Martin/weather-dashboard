@@ -73,7 +73,7 @@ let currentWeather = function (city) {
       weatherIcon.attr(
         "src",
         `http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
-        // backticks allow string and can call variables within
+      // backticks allow string and can call variables within
       );
       //String.concat() method of the String object does the same thing as below
       day.text(resDay.name);
@@ -93,7 +93,7 @@ let currentWeather = function (city) {
       currentWeatherCard.append(currentDayCard);
       currentWeatherCard.attr("style", "display: block");
       
-      //we store the city in our local storage now cause we had a successful api call and we don't want to add it both 5day and currentWeather cause it will add 2 buttons for the same city
+      //store the city in our local storage 
       storeCities(city);
     })
     .catch(function (error) {
@@ -165,7 +165,7 @@ let getUVIndex = (lat, lon) => {
                   `http://openweathermap.org/img/w/${resDay.weather[0].icon}.png`
                 );
                 //string concatenation <- what to search for
-                //since resDay.main.temp_max is a string, we can just add a string before it to describe what it is
+                //resDay.main.temp_max is a string, a string can be added before it to describe what it is
                 temperatureCard.text("Temp: " + resDay.main.temp_max + String.fromCharCode(176));
                 humidityCard.text("Humidity: " + resDay.main.humidity + "%");
 
@@ -200,18 +200,19 @@ let getUVIndex = (lat, lon) => {
       const newButton = $("<button>");
       newButton.addClass("saveBtn");
       newButton.text(city);
-      //
-      let cityArray = localStorage.getItem("cities"); //returns undefined if there is no property in local storage called cities
+      
+      let cityArray = localStorage.getItem("cities"); 
+      //returns undefined if there is no property in local storage called cities
       // let cityArray = JSON.parse(localStorage.getItem("cities")) || []
-      //if we get an item from localstorage that is undefined, its length will equal zero
+      //an item from localstorage that is undefined will have a length equal zero
       if (!cityArray) {
         cityArray = [];
       } else {
-        //comvert the string into JSON
+        //convert the string into JSON
         cityArray = JSON.parse(cityArray);
       }
 
-      //we know now cityArray is a city, so we can add items to it using .push()
+      //cityArray is a city, so we can add items to it using .push()
       // .push() is a method of the Array object class
       if (!cityArray.includes(city)) {
         cityArray.push(city);
@@ -220,18 +221,15 @@ let getUVIndex = (lat, lon) => {
           cityArray.shift();
           console.log(container.children()[0])
           let child = container.find(":first-child");
-          //for whatever reason Kat needs into look because rememeber jackshit .find(":first:child") is giving all the damn children in the div, so we just need to remove the first one in the array, which is 0 :)
           container.find(":first-child")[0].remove()
         }
 
         div.append(newButton);
         container.append(div);
         //set the new cityArray as our reference in localStorage to cities
-        //we have to change cityArray into a string cause localStorage only accepts strings
+        //change cityArray into a string cause localStorage only accepts strings
         localStorage.setItem("cities", JSON.stringify(cityArray));
       }
-
-
     }
 
     function getCities() {
@@ -251,11 +249,6 @@ let getUVIndex = (lat, lon) => {
           } else {
             break;
           }
-
-
         }
       }
-
-
-
     }
