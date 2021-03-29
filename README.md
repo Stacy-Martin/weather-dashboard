@@ -11,7 +11,7 @@ The app was created with dynamically updated HTML and CSS powered by jQuery, Mom
 
 The following screenshot provides a preview of the website appearance:
 
-![](https://________)
+![]()
 
 Visit the app live at https://stacy-martin.github.io/weather-dashboard/
 
