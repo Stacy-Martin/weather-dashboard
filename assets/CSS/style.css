@@ -1,0 +1,125 @@
+.jumbotron {
+    background-image: url("../Images/Screen\ Shot\ 2021-03-11\ at\ 1.01.01\ AM.png");
+    background-size: cover;
+    text-align:center;
+  }
+
+/* increase the default font size inherited from reboot CSS body */
+#date-display {
+    font-size: 30px;
+    font-family: aviano-flare, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.headerText {
+    font-family: aviano-flare, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+/* ****************************************************************** */
+
+/*search bar style*/
+.wrap {
+    display: flex;
+    padding: 10pt;
+  }
+
+  /* this is the size and the text in the search bar */
+.searchTerm {
+    border: 3px solid cornflowerblue;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    font-size: 12pt;
+  }
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid cornflowerblue;
+    background: cornflowerblue;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    font-size: 20px;
+  }
+
+.searchButton:hover {
+    color:darksalmon;
+}
+
+/* whole search bar column element */
+.search-bar {
+    background-color: #f2f2f2;
+    margin: 20px;
+    padding: 5px;
+}
+
+/* this is the cities saved as a button */
+.saveBtn {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    background-color: white;
+    font-size: 20pt;
+}
+
+.saveBtn:hover {
+    color:darksalmon;
+}
+
+/* ****************************************************************** */
+
+.card {
+    border: none;
+    height: 100%;
+}
+
+.weather-cards {
+    display:none;
+    font-size: 24pt;
+    text-align: left;
+    border: 5px solid cornflowerblue;
+    margin: 40px;
+    padding: 20pt;
+}
+
+.five-day-forecast {
+    margin: 5px;
+    background-color: cornflowerblue;
+    padding: 5px;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.todays-weather {
+    padding: 10pt;
+}
+
+.row {
+    font-size: 30pt;
+    text-align: center;
+    justify-content: center;
+    font-family: hero-new, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.allWeatherCards {
+    margin: 20px;
+}
+
+img{
+    width:100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.uvIndex{
+    width:60%;
+    padding: 5pt
+}
